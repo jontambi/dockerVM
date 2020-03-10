@@ -1,3 +1,5 @@
+## Script Elaborado por John Tambi
+
 #Instalacion de paquetes
 sudo yum install -y epel-release && \
 sudo yum install -y wget telnet git && \
@@ -36,15 +38,3 @@ sudo systemctl start docker
 ## Verificar version Docker
 docker version
 
-#Instalacion Golang
-wget https://dl.google.com/go/go1.14.linux-amd64.tar.gz
-
-sudo tar -C /usr/local -xzf go1.14.linux-amd64.tar.gz
-wait
-
-#Configuracion $PATH
-
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
-
-#Instalar GorillaMux
-go get -u github.com/gorilla/mux

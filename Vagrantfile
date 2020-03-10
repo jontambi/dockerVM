@@ -14,15 +14,15 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   #config.vm.box = "base"
 
-  config.vm.define "goserver" do |goserver|
-    goserver.vm.box = "centos/7"
-    goserver.vm.hostname = "goserver"
-    goserver.vm.network "forwarded_port", guest:9080, host:9080
-    goserver.vm.provider "virtualbox" do |vb|
+  config.vm.define "goserver" do |dockervm|
+    dockervm.vm.box = "centos/7"
+    dockervm.vm.hostname = "dockervm"
+    dockervm.vm.network "forwarded_port", guest:9080, host:9080
+    dockervm.vm.provider "virtualbox" do |vb|
       vb.memory = "2048"
       vb.cpus = "1"
     end
-    goserver.vm.provision "shell", path: "provisioners/goserver.sh"
+    dockervm.vm.provision "shell", path: "provisioners/dockerVM.sh"
   end
 
   # Disable automatic box update checking. If you disable this, then
